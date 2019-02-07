@@ -15,10 +15,20 @@ window.onload = function() {
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'logo', 'assets/phaser.png' );
+	game.load.atlas('lazer', 'assets/games/defender/laser.png', 'assets/games/defender/laser.json');
     }
     
     var bouncy;
-    
+    var fireButton;
+    var bulletTime = 0;
+    var frameTime = 0;
+    var frames;
+    var prevCamX = 0;   
+    var lazers;
+	var player;
+	var cursors;
+	var fireButton; 
+
     function create() {
         // Create a sprite at the center of the screen using the 'logo' image.
         bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
@@ -36,6 +46,20 @@ window.onload = function() {
         var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
         var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
         text.anchor.setTo( 0.5, 0.0 );
+        
+	    game.world.setBounds(0, 0, 800*4, 600);
+		// Camera follows players movement
+        game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1);
+		// Cursors show controls for player to move
+    	cursors = game.input.keyboard.createCursorKeys();
+    	// Cursor show space bar button for player to fire
+    	fireButton = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+	
+		// Game camera is camera that follows player
+    	prevCamX = game.camera.x;
+    	// Hero is placeholder sprite for this game
+    	player = game.add.sprite(32, game.world.height - 150, 'dude');
+
     }
     
     function update() {
@@ -45,5 +69,109 @@ window.onload = function() {
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
         bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
+	
+		// sprite is initially set as idle
+	    sprite.body.setZeroVelocity();
+		// The velocity shows how fast a player can move
+    	if (cursors.left.isDown)
+    	{
+    		sprite.body.moveLeft(400);
+    	}
+    	else if (cursors.right.isDown)
+    	{
+    		sprite.body.moveRight(400);
+    	}
+
+    	if (cursors.up.isDown)
+    	{
+    		sprite.body.moveUp(400);
+    	}
+    	else if (cursors.down.isDown)
+    	{
+    		sprite.body.moveDown(400);
+    	}
+    	
+		if (cursors.left.isDown)
+    	{
+        	player.x -= 8;
+        	player.scale.x = -1;
+    	}
+    	else if (cursors.right.isDown)
+    	{
+        	player.x += 8;
+        	player.scale.x = 1;
+    	}
+
+    	if (cursors.up.isDown)
+    	{
+        	player.y -= 8;
+    	}
+    	else if (cursors.down.isDown)
+    	{
+        	player.y += 8;
+    	}
+
+    	if (fireButton.isDown)
+    	{
+        	fireBullet();
+    	}
+
+    	lazers.forEachAlive(updateBullets, this);
+
+    	prevCamX = game.camera.x;
+}
+
+// The bullets in the game are allowed to do actions once they are shot
+function updateBullets (lazer) {
+
+    // if (game.time.now > frameTime)
+    // {
+    //     frameTime = game.time.now + 500;
+    // }
+    // else
+    // {
+    //     return;
+    // }
+
+    //  Adjust for camera scrolling
+    var camDelta = game.camera.x - prevCamX;
+    lazer.x += camDelta;
+
+    if (lazer.animations.frameName !== 'frame30')
+    {
+        lazer.animations.next();
+    }
+    else
+    {
+        if (lazer.scale.x === 1)
+        {
+            lazer.x += 16;
+
+            if (lazer.x > (game.camera.view.right - 224))
+            {
+                lazer.kill();
+            }
+        }
+        else
+        {
+            lazer.x -= 16;
+
+            if (lazer.x < (game.camera.view.left - 224))
+            {
+                lazer.kill();
+            }
+        }
+    }
+
+}
+
+
+// Function allows bullet to be generated in game
+function fireBullet () {
+	//
+    if (game.time.now > bulletTime)
+    {
+        //  Grab the first bullet we can from the pool
+        lazer = lazers.getFirstDead(true, player.x + 24 * player.scale.x, player.y + 8, 'lazer');
     }
 };

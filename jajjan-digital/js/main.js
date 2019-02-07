@@ -174,4 +174,5 @@ function fireBullet () {
         //  Grab the first bullet we can from the pool
         lazer = lazers.getFirstDead(true, player.x + 24 * player.scale.x, player.y + 8, 'lazer');
     }
+}
 };

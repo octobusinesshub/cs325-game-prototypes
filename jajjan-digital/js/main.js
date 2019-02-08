@@ -60,6 +60,8 @@ window.onload = function() {
     	prevCamX = game.camera.x;
     	// Hero is placeholder player for this game
     	player = game.add.sprite(32, game.world.height - 150, 'dude');
+    	
+    	game.physics.p2.enable(player);
 
     }
     

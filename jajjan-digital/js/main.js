@@ -30,13 +30,13 @@ window.onload = function() {
 	var fireButton; 
 
     function create() {
-        // Create a sprite at the center of the screen using the 'logo' image.
-        bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
-        // Anchor the sprite at its center, as opposed to its top-left corner.
+        // Create a player at the center of the screen using the 'logo' image.
+        bouncy = game.add.player( game.world.centerX, game.world.centerY, 'logo' );
+        // Anchor the player at its center, as opposed to its top-left corner.
         // so it will be truly centered.
         bouncy.anchor.setTo( 0.5, 0.5 );
         
-        // Turn on the arcade physics engine for this sprite.
+        // Turn on the arcade physics engine for this player.
         game.physics.enable( bouncy, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
         bouncy.body.collideWorldBounds = true;
@@ -57,38 +57,38 @@ window.onload = function() {
 	
 		// Game camera is camera that follows player
     	prevCamX = game.camera.x;
-    	// Hero is placeholder sprite for this game
-    	sprite = game.add.sprite(32, game.world.height - 150, 'dude');
+    	// Hero is placeholder player for this game
+    	player = game.add.player(32, game.world.height - 150, 'dude');
 
     }
     
     function update() {
-        // Accelerate the 'logo' sprite towards the cursor,
+        // Accelerate the 'logo' player towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
         bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
 	
-		// sprite is initially set as idle
-	    sprite.body.setZeroVelocity();
+		// player is initially set as idle
+	    player.body.setZeroVelocity();
 		// The velocity shows how fast a player can move
     	if (cursors.left.isDown)
     	{
-    		sprite.body.moveLeft(400);
+    		player.body.moveLeft(400);
     	}
     	else if (cursors.right.isDown)
     	{
-    		sprite.body.moveRight(400);
+    		player.body.moveRight(400);
     	}
 
     	if (cursors.up.isDown)
     	{
-    		sprite.body.moveUp(400);
+    		player.body.moveUp(400);
     	}
     	else if (cursors.down.isDown)
     	{
-    		sprite.body.moveDown(400);
+    		player.body.moveDown(400);
     	}
     	
 		if (cursors.left.isDown)

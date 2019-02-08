@@ -58,7 +58,7 @@ window.onload = function() {
 		// Game camera is camera that follows player
     	prevCamX = game.camera.x;
     	// Hero is placeholder sprite for this game
-    	player = game.add.sprite(32, game.world.height - 150, 'dude');
+    	sprite = game.add.sprite(32, game.world.height - 150, 'dude');
 
     }
     

@@ -32,15 +32,15 @@ window.onload = function() {
 
     function create() {
         // Create a player at the center of the screen using the 'logo' image.
-        bouncy = game.add.player( game.world.centerX, game.world.centerY, 'logo' );
+        //bouncy = game.add.sprite( game.world.centerX, game.world.centerY, 'logo' );
         // Anchor the player at its center, as opposed to its top-left corner.
         // so it will be truly centered.
-        bouncy.anchor.setTo( 0.5, 0.5 );
+        //bouncy.anchor.setTo( 0.5, 0.5 );
         
         // Turn on the arcade physics engine for this player.
-        game.physics.enable( bouncy, Phaser.Physics.ARCADE );
+        //game.physics.enable( bouncy, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
-        bouncy.body.collideWorldBounds = true;
+        //bouncy.body.collideWorldBounds = true;
         
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
@@ -59,7 +59,7 @@ window.onload = function() {
 		// Game camera is camera that follows player
     	prevCamX = game.camera.x;
     	// Hero is placeholder player for this game
-    	player = game.add.player(32, game.world.height - 150, 'dude');
+    	player = game.add.sprite(32, game.world.height - 150, 'dude');
 
     }
     

@@ -15,7 +15,8 @@ window.onload = function() {
     function preload() {
         // Load an image and call it 'logo'.
         game.load.image( 'logo', 'assets/phaser.png' );
-	game.load.atlas('lazer', 'assets/games/defender/laser.png', 'assets/games/defender/laser.json');
+        game.load.image( 'dude', 'assets/dude.png' );
+	    game.load.image('lazer', 'assets/lazers.png');
     }
     
     var bouncy;

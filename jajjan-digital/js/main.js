@@ -63,7 +63,7 @@ window.onload = function() {
     	
     	game.physics.startSystem(Phaser.Physics.P2JS);
     	game.physics.enable(player, Phaser.Physics.ARCADE);
-    	game.physics.p2.enable(spriteName);
+    	game.physics.p2.enable(player);
 
     }
     

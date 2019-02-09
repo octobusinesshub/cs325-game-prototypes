@@ -76,7 +76,7 @@ window.onload = function() {
         //bouncy.rotation = game.physics.arcade.accelerateToPointer( bouncy, game.input.activePointer, 500, 500, 500 );
 	
 		// player is initially set as idle
-	    player.body.setZeroVelocity();
+	    player.body.setZeroVelocity(0, 0);
 		// The velocity shows how fast a player can move
     	if (cursors.left.isDown)
     	{

@@ -10,7 +10,7 @@ window.onload = function() {
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update } );
+    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, updateBullets: updateBullets, fireBullets: fireBullets} );
     
     function preload() {
         // Load an image and call it 'logo'.
@@ -61,7 +61,9 @@ window.onload = function() {
     	// Hero is placeholder player for this game
     	player = game.add.sprite(32, game.world.height - 150, 'dude');
     	
+    	game.physics.startSystem(Phaser.Physics.P2JS);
     	game.physics.enable(player, Phaser.Physics.ARCADE);
+    	game.physics.p2.enable(spriteName);
 
     }
     

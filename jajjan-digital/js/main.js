@@ -62,7 +62,7 @@ window.onload = function() {
     	player = game.add.sprite(32, game.world.height - 150, 'dude');
     	
     	game.physics.startSystem(Phaser.Physics.P2JS);
-    	game.physics.enable(player, Phaser.Physics.ARCADE);
+    	//game.physics.enable(player, Phaser.Physics.ARCADE);
     	game.physics.p2.enable(player);
 
     }

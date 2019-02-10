@@ -60,6 +60,7 @@ window.onload = function() {
     	prevCamX = game.camera.x;
     	// Hero is placeholder player for this game
     	player = game.add.sprite(32, game.world.height - 150, 'dude');
+    	lazers = game.add.sprite(20, game.world.height - 150, 'lazer');
     	
     	game.physics.startSystem(Phaser.Physics.P2JS);
     	//game.physics.enable(player, Phaser.Physics.ARCADE);

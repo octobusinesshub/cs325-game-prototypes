@@ -1,0 +1,33 @@
+{ "height":100,
+ "infinite":false,
+ "layers":[
+        {
+         "compression":"zlib",
+         "data":"eJzt1jEOgDAMA8As\/P\/LrB1KS5pmu5MQiNHGQAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5D3DeXXQK5u3TnrsdrDqRyd3ZbrQSb+\/34rdZnRSl93G170IfVSd7mG2C\/9edav8ql3p5Nwst1WWcu71tY3x2rN\/R9f7RidnXmVkAtY=",
+         "encoding":"base64",
+         "height":100,
+         "id":1,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":2,
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.2.2",
+ "tileheight":32,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"terrain_2.tsx"
+        }],
+ "tilewidth":32,
+ "type":"map",
+ "version":1.2,
+ "width":100
+}

@@ -1,0 +1,33 @@
+{ "height":100,
+ "infinite":false,
+ "layers":[
+        {
+         "compression":"zlib",
+         "data":"eJzt1lEKwjAQRdF2\/2vVNfhV0IKSlrF5ac6B+RQyuYG6LAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwKie6+dwjf29Vw\/H6JFFjyx36ZFwhgojn\/1d5fv49xtNfM\/VKnbsffez9tjv2fvO9Rh77qJ11287X3EXMzUZYc+ZemyS99Mja78Zv00p5zhDjyx6ZNEjmx788ljbJvFd3JEeWfSo1Xqf25z9vR5tjvY4O3q0qbpvauiRRY8semSp+n9FBj2y6JHF9yWLHln0yKIHAPT3ArbYzxw=",
+         "encoding":"base64",
+         "height":100,
+         "id":1,
+         "name":"Tile Layer 1",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }],
+ "nextlayerid":2,
+ "nextobjectid":1,
+ "orientation":"orthogonal",
+ "renderorder":"right-down",
+ "tiledversion":"1.2.2",
+ "tileheight":32,
+ "tilesets":[
+        {
+         "firstgid":1,
+         "source":"..\/..\/jajjan-digital3\/assets\/terrain_2.tsx"
+        }],
+ "tilewidth":32,
+ "type":"map",
+ "version":1.2,
+ "width":100
+}

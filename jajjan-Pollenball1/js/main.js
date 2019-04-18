@@ -10,7 +10,7 @@ window.onload = function() {
     // loading functions to reflect where you are putting the assets.
     // All loading functions will typically all be found inside "preload()".
     
-    var game = new Phaser.Game( 800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, goal_update: goal_update, goal_update1: goal_update1} );
+    var game = new Phaser.Game( 1200, 700, Phaser.AUTO, 'game', { preload: preload, create: create, update: update, goal_update: goal_update, goal_update1: goal_update1} );
     
     function preload() {
         // Load an image and call it 'logo'.
@@ -63,15 +63,15 @@ window.onload = function() {
         var text = game.add.text( game.world.centerX, 15, "Build something amazing.", style );
         text.anchor.setTo( 0.5, 0.0 );
         
-        meadow = game.add.tileSprite(0,0,800,600,'meadow');
+        meadow = game.add.tileSprite(0,0,1200,700,'meadow');
         
         bee1 = game.add.sprite(750,200, 'bee1');
-        bee2 = game.add.sprite(0,200, 'bee2');
+        bee2 = game.add.sprite(100,200, 'bee2');
         
-        pollen = game.add.sprite(300,250, 'pollen');
+        pollen = game.add.sprite(500,250, 'pollen');
         
-        goal1 = game.add.sprite(50,250, 'hivegoal');
-        goal2 = game.add.sprite(650,250, 'hivegoal');
+        goal1 = game.add.sprite(0,250, 'hivegoal');
+        goal2 = game.add.sprite(1075,250, 'hivegoal');
         game.physics.arcade.enable([goal1, goal2]);
         
         game.physics.arcade.enable(bee1);
@@ -95,29 +95,13 @@ window.onload = function() {
 		DKey = game.input.keyboard.addKey(Phaser.Keyboard.D);
 		WKey = game.input.keyboard.addKey(Phaser.Keyboard.W);
 		SKey = game.input.keyboard.addKey(Phaser.Keyboard.S);
-		game.physics.arcade.overlap(pollen, goal1, goal_update, null, this); 
-    	game.physics.arcade.overlap(pollen, goal2, goal_update, null, this);
 		
 		scoreText1 = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
-		scoreText2 = game.add.text(650, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
+		scoreText2 = game.add.text(1050, 16, 'score: 0', { fontSize: '32px', fill: '#ffffff' });
 		
 		Music = game.sound.play('music');
     }
     
-     function goal_update(pollen, goal) {
-		pollen.x = 250;
-    	pollen.y = 300
-
-    	if(goal==goal1){
-			score1 += 1;
-    		scoreText.text = 'Score: ' + score1;
-		}  
-		else if (goal==goal2){
-		  	score1 += 1;
-    		scoreText.text = 'Score: ' + score2;
-		}
-
-    }
     
     function update() {
         // Accelerate the 'logo' sprite towards the cursor,
@@ -131,32 +115,33 @@ window.onload = function() {
         bee1.body.velocity.x = 0;
         bee2.body.velocity.x = 0;
 
-		
+		game.physics.arcade.overlap(pollen, goal1, goal_update, null, this); 
+    	game.physics.arcade.overlap(pollen, goal2, goal_update, null, this);
 
     	if (cursor1.left.isDown)
     	{
         	//  Move to the left
-        	bee1.body.velocity.x = -150;
+        	bee1.body.velocity.x = -250;
 
     	}
     	else if (cursor1.right.isDown)
     	{
         	//  Move to the right
-        	bee1.body.velocity.x = 150;
+        	bee1.body.velocity.x = 250;
 
     	}
     	
     	else if (cursor1.up.isDown)
     	{
         	//  Move to the up
-        	bee1.body.velocity.y = -150;
+        	bee1.body.velocity.y = -250;
 
     	}
     	
     	else if (cursor1.down.isDown)
     	{
         	//  Move to the down
-        	bee1.body.velocity.y = 150;
+        	bee1.body.velocity.y = 250;
 
     	}
     	
@@ -221,9 +206,25 @@ window.onload = function() {
     	
     }
 
+	function goal_update(pollen, goal) {
+		pollen.x = 500;
+    	pollen.y = 300
+    	pollen.body.velocity.x = 0;
+    	pollen.body.velocity.y = 0;
+
+    	if(goal==goal1){
+			score1 += 1;
+    		scoreText1.text = 'Score: ' + score1;
+		}  
+		else if (goal==goal2){
+		  	score2 += 1;
+    		scoreText2.text = 'Score: ' + score2;
+		}
+
+    }
     
     function goal_update1() {
-    	pollen.x = 250;
+    	pollen.x = 500;
     	pollen.y = 300;
 
     	score2 += 1;

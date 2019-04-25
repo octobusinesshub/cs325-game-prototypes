@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello! Amaze!</title>
+    <script src="js/phaser.js"></script>
+    <script src="js/main.js"></script>
+
+<style>
+body
+{
+    color: #777;
+    font-family: "Avenir", Verdana, sans-serif;
+}
+#readme
+{
+    margin-top: 10px;
+}
+</style>
+
+</head>
+<body>
+<div id="game"></div>
+<div id="readme">
+<h2>Pollenball</h2>
+
+<ul>
+<li><strong>Originality:</strong>
+What is original about your game? It is essentially a simplified soccer game but instead 
+the main objective is to push the pollen (i.e. soccer ball) into your own hive (i.e. net).
+There are also two balls in the center of the field instead of one.
+</li>
+
+<li><strong>Technical Merit:</strong>
+What is interesting about your game technology? The interesting thing about my game 
+collision technology is how the bees, pollen and screen borders collide with each other. 
+The collision technology allows for unpredictable consequences and events in the game.
+</li>
+
+<li><strong>Prototype Postmortem:</strong>
+What did you learn from this prototype?
+What was the easiest or hardest part of making it? The easiest part of making this 
+prototype version was creating a win condition for my game and making the collision 
+physics between the bees and the pollen. The hardest part was trying to set up the right 
+collision between the bees so that players won't have a hard time retrieving the pollen.
+There was also trying to add points whenever the pollen touched a hive.
+</li>
+
+<li><strong>Prototype Assets:</strong>
+Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
+<ul>
+<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
+<li> Flower meadow" <a href="https://commons.wikimedia.org/wiki/File:Up_Flower_Meadow_Mineral_King.jpg">Meadow</a></li>
+<li> Pollen game ball: <a href="https://www.lacasedecousinpaul.com/en/outdoor-balls/239-yellow.html">Pollen</a></li>
+<li> Bee Sprites: <a href="https://bepestfree.com/infographic-ten-tips-prevent-bee-stings/">Bee</a></li>
+<li> Game Music: <a href="https://www.youtube.com/watch?v=YBHxHSTpTnE">Music</a></li>
+<li> Beehive goals: <a href="https://www.kisspng.com/png-beehive-honey-bee-clip-art-honey-bee-hive-template-1278645/">Beehive</a></li>
+</ul>
+</li>
+
+<li><strong>Prototype Closest Other Game:</strong>
+Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
+The game will mostly resemble a typical but simplified soccer game where you instead put 
+the ball in your own net and there are two balls on the field. 
+I borrowed some code on overlap and score color. The score is borrowed from the Phaser 
+tutorial. The collision code is similar to the code I used for previous digital 
+assignments.
+</li>
+
+<li><strong>High Concept:</strong>
+A one-sentence summary of your game. : Players each control a bee where they try to 
+push the pollen into their own hive in a soccer-like match.
+</li>
+
+<li><strong>Theme:</strong>
+State which of the Storymatic themes you used. I did not select a Storymatic theme.
+</li>
+
+<li><strong>Mandated Variety:</strong>
+State which input, randomness, genre, and play style you used in this prototype.
+Player one uses the arrow keys for movement while player two moves using the WASD keys.
+Based on the title, it will be a 2D Sports game. The randomness is based on where the
+pollen will land on screen. The players can raise the randomness by pushing the pollen
+harder. The collision between the two pollen can lead to even more unpredictability in
+the game.
+</li>
+
+<li><strong>Prototype Goal:</strong>
+What game mechanic is this prototype evaluating? The game mechanic the prototype is 
+evaluating is the core mechanic of putting the pollen in your net and how the bees 
+interact with the pollen. I’m also evaluating the actions the bees can do in the game. 
+I’m testing how the objects, including the bees and pollen, will bounce off each other 
+and see if there any objects to add to make the game more interesting, such as obstacle
+s or more pollen.
+</li>
+
+<li><strong>Player Experience Goals:</strong>
+What experience do you want players to have when playing your game?
+</li> I want to allow players to have fun playing with each other while also enjoying the 
+game through the ensuing bouncing mayhem that is occurring in the game. The players will 
+enjoy this game by hoping to beat each other while still having fun through the game 
+events that occur.
+
+<li><strong>Gameplay:</strong>
+A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
+</li> The players can move their bee around the map. Player 1 moves with the arrow keys 
+while Player 2 moves around with the WASD keys. The main mechanic of the game is the 
+players are trying to take the pollen in the middle of the screen back into their own 
+hive. There will be two balls of pollen in the center of the screen. When a player grabs 
+a pollen, the other player will try to take the pollen from them while attempting to 
+take it back to their hive.
+
+<li><strong>Strategies:</strong>
+What player strategies do you expect will be effective at playing this game?
+The main strategy for this game is to put the pollen in your hive while making sure the 
+opponent doesn’t steal your pollen, especially when there is a chance for them to put the 
+pollen in their hive. For the bee in possession of the pollen, they will try to evade the 
+other bee from stealing their pollen while trying to make it back to their hive. As for 
+the bee without the pollen, they will try to steal the pollen from the bee through a 
+variety strategies, such as moving in front of the bee to grab the pollen from them.
+The bees will also have to decide whether to take a pollen back to their hive and letting
+the opponent take the other pollen or stop the opponent from getting both pollen.
+</li>
+
+<li><strong>Story/Setting/Premise:</strong>
+A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
+How will the dramatic tension interact with the gameplay tension?
+The game world is set in a flower meadow where nearby bee colonies go there to collect 
+pollen. The entire meadow area is rich with pollen. However, the bees are unwilling to 
+share the pollen with each other. Two bees, each representing a colony, then fight each 
+other over the biggest pollen they can find and hope to bring them back to their 
+colonies. They settle it with a match called “pollenball”, where bees score points by 
+putting the target pollen in their hives.
+</li>
+
+<li><strong>Target Audience:</strong>
+A single sentence that describes the demographic you're trying to reach. I am reaching 
+the demographic for all ages with the specific target of players aged 8-13.
+</li>
+
+<li><strong>Play Time:</strong>
+How long does your game take to play?
+The game will last until one of the players puts 10 pollen in their hives.
+</li>
+
+</ul>
+
+</div>
+</body>
+</html>
